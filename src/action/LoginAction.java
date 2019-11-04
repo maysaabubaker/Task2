@@ -71,9 +71,7 @@ public class LoginAction extends Action {
 			}
 			else
 			{
-				 
 				return mapping.findForward("failure");
-
 			}
 		}
 		catch (Exception e) {
