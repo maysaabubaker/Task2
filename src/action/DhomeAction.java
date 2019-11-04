@@ -18,8 +18,8 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import model.*;
 
-import model.DatabaseConnection;
 public class DhomeAction extends Action {
 	
 	public ActionForward execute(ActionMapping mapping,
@@ -31,34 +31,22 @@ public class DhomeAction extends Action {
 	int pid=(Integer)session.getAttribute("pid");
 			
 	Connection con=DatabaseConnection.getConnection();
-	ArrayList tasks=new ArrayList();
+	ArrayList<Task> tasks=new ArrayList<Task>();
 	try {
 		PreparedStatement ps=con.prepareStatement("select * from tasks where aid=?");
 		ps.setInt(1,pid);
 		ResultSet result=ps.executeQuery();
 		while(result.next())
 		{
-		Map userTask=new HashMap();
-		int tid=result.getInt(1);
-		userTask.put("tid",tid);
-		
+		int tid=result.getInt(1);		
 		String title=result.getString(2);
-		userTask.put("title",title);
-
 		String summary=result.getString(3);
-		userTask.put("summary",summary);
 		String status=result.getString(4);
-		if(status!=null) {
-		userTask.put("status",status);}
-		else
-			userTask.put("status","");
-		
-		tasks.add(userTask);
-	
+		Task t=new Task(tid,title,summary,status);
+        tasks.add(t);
 		}
 		
         request.setAttribute("userTasks", tasks);
-        System.out.println("tasks"+tasks);
         return mapping.findForward("success");	
 
        

@@ -13,6 +13,8 @@ type="form.LoginForm"/>
 type="action.LoginAction"
 name="loginForm">
 <forward name="dhome" path="/dhome.do" />
+<forward name="lhome" path="/lhome"/>
+<forward name="mhome" path="/mhome"/>
 <forward name="failure" path="/error.jsp"/>
 </action>
 <action path="/dhome"
@@ -20,5 +22,16 @@ type="action.DhomeAction">
 <forward name="success" path="/DeveloperHome.jsp"/>
 <forward name="failure" path="/error.jsp"/>
 </action>
+<action path="/lhome"
+type="action.LhomeAction">
+<forward name="success" path="/LeaderHome.jsp"/>
+<forward name="failure" path="/error.jsp"/>
+</action>
+<action path="/mhome"
+type="action.MhomeAction">
+<forward name="success" path="/ManagerHome.jsp"/>
+<forward name="failure" path="/error.jsp"/>
+</action>
+
 </action-mappings>
 </struts-config>
