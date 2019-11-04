@@ -75,7 +75,6 @@ public class LoginAction extends Action {
 				return mapping.findForward("failure");
 
 			}
-	
 		}
 		catch (Exception e) {
 			e.printStackTrace();
