@@ -1,6 +1,7 @@
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+       <%@ page  isELIgnored="false"%>
     
 <!DOCTYPE html>
 <html>
@@ -15,7 +16,7 @@
 		<ul class="mcd-menu">
 			
 			<li>
-				<a href="profile" class="${pageContext.request.requestURI eq '/task11/profile.jsp' ? ' active' : ''}">
+				<a href="profile.do" class="${pageContext.request.requestURI eq '/task11/profile.jsp' ? ' active' : ''}">
 					<i class="fa fa-edit"></i>
 					<strong>Profile</strong>
 				</a>
@@ -23,7 +24,7 @@
 			<c:choose>
 			<c:when test="${level==1}">
 			<li>
-				<a href="mhome" class="${pageContext.request.requestURI eq '/task11/ManagerHome.jsp' ? ' active' : ''}">
+				<a href="mhome.do" class="${pageContext.request.requestURI eq '/task11/ManagerHome.jsp' ? ' active' : ''}">
 					<i class="fa fa-gift"></i>
 					<strong>Tasks</strong>
 				</a>
@@ -31,7 +32,7 @@
 			</c:when>
 			<c:when test="${level==2}">
 			<li>
-				<a href="lhome" class="${pageContext.request.requestURI eq '/task11/LeaderHome.jsp' ? ' active' : ''}">
+				<a href="lhome.do" class="${pageContext.request.requestURI eq '/task11/LeaderHome.jsp' ? ' active' : ''}">
 					<i class="fa fa-gift"></i>
 					<strong>Tasks</strong>
 				</a>
@@ -39,7 +40,7 @@
 			</c:when>
 			<c:when test="${level==3}">
 			<li>
-				<a href="dhome" class="${pageContext.request.requestURI eq '/task11/DeveloperHome.jsp' ? ' active' : ''}">
+				<a href="dhome.do" class="${pageContext.request.requestURI eq '/task11/DeveloperHome.jsp' ? ' active' : ''}">
 					<i class="fa fa-gift"></i>
 					<strong>Tasks</strong>
 				</a>

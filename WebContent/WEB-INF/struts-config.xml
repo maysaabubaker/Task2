@@ -7,16 +7,40 @@ Configuration 1.1//EN"
  <form-beans>
 <form-bean name="loginForm"
 type="form.LoginForm"/>
+
+<form-bean name="cstatusForm"
+type="form.CstatusForm"/>
+
+<form-bean name="addtForm"
+type="form.AddtForm"/>
+
+<form-bean name="vtaskForm"
+type="form.VtaskForm"/>
+
+<form-bean name="assignForm"
+type="form.AssignForm"/>
+
+<form-bean name="arForm"
+type="form.ARForm"/>
+
+<form-bean name="addeForm" type="form.AddeForm"/>
 </form-beans>
 <action-mappings>
 <action path="/Login"
 type="action.LoginAction"
 name="loginForm">
 <forward name="dhome" path="/dhome.do" />
-<forward name="lhome" path="/lhome"/>
-<forward name="mhome" path="/mhome"/>
+<forward name="lhome" path="/lhome.do"/>
+<forward name="mhome" path="/mhome.do"/>
 <forward name="failure" path="/error.jsp"/>
 </action>
+
+<action path="/logout"
+type="action.LogoutAction">
+<forward name="success" path="/index.jsp"/>
+<forward name="failure" path="/error.jsp"/>
+</action>
+
 <action path="/dhome"
 type="action.DhomeAction">
 <forward name="success" path="/DeveloperHome.jsp"/>
@@ -32,6 +56,66 @@ type="action.MhomeAction">
 <forward name="success" path="/ManagerHome.jsp"/>
 <forward name="failure" path="/error.jsp"/>
 </action>
+<action path="/changeStatus"
+type="action.CstatusAction"
+name="cstatusForm">
+<forward name="dhome" path="/dhome.do" />
+<forward name="lhome" path="/lhome.do"/>
+<forward name="mhome" path="/mhome.do"/>
+<forward name="failure" path="/error.jsp"/>
+</action>
 
+<action path="/addtask"
+type="action.AddtAction"
+name="addtForm">
+<forward name="dhome" path="/dhome.do" />
+<forward name="lhome" path="/lhome.do"/>
+<forward name="mhome" path="/mhome.do"/>
+<forward name="failure" path="/error.jsp"/>
+</action>
+
+<action path="/vtask"
+type="action.VtaskAction"
+name="vtaskForm">
+<forward name="lhome" path="/lhome.do"/>
+<forward name="mhome" path="/mhome.do"/>
+<forward name="failure" path="/error.jsp"/>
+</action>
+
+<action path="/assign"
+type="action.AssignAction"
+name="assignForm">
+<forward name="success" path="/lhome.do"/>
+<forward name="failure" path="/error.jsp"/>
+</action>
+
+<action path="/atask"
+type="action.AcceptAction"
+name="arForm">
+<forward name="lhome" path="/lhome.do"/>
+<forward name="mhome" path="/mhome.do"/>
+<forward name="failure" path="/error.jsp"/>
+</action>
+
+<action path="/rtask"
+type="action.RejectAction"
+name="arForm">
+<forward name="lhome" path="/lhome.do"/>
+<forward name="mhome" path="/mhome.do"/>
+<forward name="failure" path="/error.jsp"/>
+</action>
+
+<action path="/profile"
+type="action.ProfileAction">
+<forward name="success" path="/profile.jsp"/>
+<forward name="failure" path="/error.jsp"/>
+</action>
+
+<action path="/newemp"
+type="action.AddeAction"
+name="addeForm">
+<forward name="success" path="/mhome.do"/>
+<forward name="failure" path="/error.jsp"/>
+</action>
 </action-mappings>
 </struts-config>

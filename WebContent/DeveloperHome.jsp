@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-       <%@ page  isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page  isELIgnored="false"%>
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
     
 <!DOCTYPE html>
 <html>
@@ -32,36 +33,35 @@
 <td>${task.summary}</td>
 <td>${task.status}</td>
 <td>
-<form method="POST"
-action="changeStatus">
+<html:form action="changeStatus" name="cstatusForm" type="form.CstatusForm" >
 <c:choose>
 <c:when test="${task.status=='in progress'}">
-<input type=radio name=cstat  value="to do"/> to do<br>
-<input type=radio name=cstat checked value="in progress"/> in progress<br>
-<input type=radio name=cstat  value="completed"/>completed<br>
+<html:radio property="status"  value="to do"/> to do<br>
+<html:radio property="status"  value="in progress"/> in progress<br>
+<html:radio property="status"  value="completed"/>completed<br>
 </c:when>
 <c:when test="${task.status=='to do'}">
-<input type=radio name=cstat checked value="to do"/> to do<br>
-<input type=radio name=cstat  value="in progress"/> in progress<br>
-<input type=radio name=cstat  value="completed"/>completed<br></c:when>
+<html:radio property="status"  value="to do"/> to do<br>
+<html:radio property="status"  value="in progress"/> in progress<br>
+<html:radio property="status"  value="completed"/>completed<br></c:when>
 <c:when test="${task.status=='completed'}">
-<input type=radio name=cstat  value="to do"/> to do<br>
-<input type=radio name=cstat  value="in progress"/> in progress<br>
-<input type=radio name=cstat  checked value="completed"/>completed<br>
+<html:radio property="status"  value="to do"/> to do<br>
+<html:radio property="status"  value="in progress"/> in progress<br>
+<html:radio property="status"   value="completed"/>completed<br>
 </c:when>
 <c:otherwise>
-<input type=radio name=cstat  value="to do"/> to do<br>
-<input type=radio name=cstat  value="in progress"/> in progress<br>
-<input type=radio name=cstat  value="completed"/>completed<br>
+<html:radio property="status"  value="to do"/> to do<br>
+<html:radio property="status"  value="in progress"/> in progress<br>
+<html:radio property="status"  value="completed"/>completed<br>
 </c:otherwise>
 </c:choose>
-
+<html:hidden property="tid" value="${task.tid}"/>
 <br>
 <center>
-<button name="tid" value="${task.tid}">Change Status</button>
+<html:submit value="Change Status"/>
 </center>
 <br>
-</form>
+</html:form>
 </td>
 
 </tr>
