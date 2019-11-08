@@ -108,7 +108,6 @@ type="action.ProfileAction">
 <forward name="success" path="/profile.jsp"/>
 <forward name="failure" path="/error.jsp"/>
 </action>
-
 <action path="/newemp"
 type="action.AddeAction"
 name="addeForm">
