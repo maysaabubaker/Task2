@@ -103,7 +103,6 @@ name="arForm">
 <forward name="mhome" path="/mhome.do"/>
 <forward name="failure" path="/error.jsp"/>
 </action>
-
 <action path="/profile"
 type="action.ProfileAction">
 <forward name="success" path="/profile.jsp"/>
