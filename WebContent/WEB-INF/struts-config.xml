@@ -96,7 +96,6 @@ name="arForm">
 <forward name="mhome" path="/mhome.do"/>
 <forward name="failure" path="/error.jsp"/>
 </action>
-
 <action path="/rtask"
 type="action.RejectAction"
 name="arForm">
