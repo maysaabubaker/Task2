@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tiles-definitions>
+<definition name="devhome" path="/DeveloperHome.jsp">
+<put name="title" value="Developer Home" />
+<put name="header" value="/header.jsp" />
+<put name="sidebar" value="/sidebar.jsp" />
+<put name="content" type="string">
+Content goes here
+</put>
+</definition>
+</tiles-definitions>

@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page  isELIgnored="false"%>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
-    
+ <%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
+
 <!DOCTYPE html>
 <html>
 <head>

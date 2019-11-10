@@ -108,7 +108,7 @@
 </td>
 
 <td>
-<html:link href="Assign.jsp?aid=${developer.id}">Assign</html:link>
+<html:link href="Assign.jsp?aid=${developer.id}" styleClass="anch">Assign</html:link>
 </td>
 
 </tr>

@@ -29,7 +29,6 @@ public class DhomeAction extends Action {
 		    throws IOException, ServletException {
 	HttpSession session=request.getSession();
 	int pid=(Integer)session.getAttribute("pid");
-			
 	Connection con=DatabaseConnection.getConnection();
 	ArrayList<Task> tasks=new ArrayList<Task>();
 	try {
