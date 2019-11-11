@@ -89,6 +89,20 @@
 .container .info span .fa {
   color: #EF3B3A;
 }
+input[type="submit"]{
+  width: 60%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover{
+  background-color: #45a049;
+}
 body {
   background: #76b852; /* fallback for old browsers */
   background: -webkit-linear-gradient(right, #76b852, #8DC26F);

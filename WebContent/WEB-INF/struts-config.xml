@@ -37,13 +37,13 @@ name="loginForm">
 
 <action path="/logout"
 type="action.LogoutAction">
-<forward name="success" path="/index.jsp"/>
+<forward name="success" path="/index.jsp" redirect="true"/>
 <forward name="failure" path="/error.jsp"/>
 </action>
 
 <action path="/dhome"
 type="action.DhomeAction">
-<forward name="success" path="/DeveloperHome.jsp"/>
+<forward name="success" path="/DeveloperHome.jsp" redirect="true"/>
 <forward name="failure" path="/error.jsp"/>
 </action>
 <action path="/lhome"
@@ -105,7 +105,7 @@ name="arForm">
 </action>
 <action path="/profile"
 type="action.ProfileAction">
-<forward name="success" path="/profile.jsp"/>
+<forward name="success" path="/profile.jsp" redirect="true"/>
 <forward name="failure" path="/error.jsp"/>
 </action>
 <action path="/newemp"

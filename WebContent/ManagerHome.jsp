@@ -81,7 +81,7 @@
 <td>
 <html:form action="vtask" name="vtaskForm" type="form.VtaskForm" >
 <html:hidden property="pid" value="${leader.id}"/>
-<html:submit value="View Tasks" />
+<html:submit value="View Tasks" styleId="myBtn" />
 </html:form>
 </td>
 </tr>
@@ -103,7 +103,7 @@
 <td>
 <html:form action="vtask" name="vtaskForm" type="form.VtaskForm" >
 <html:hidden property="pid" value="${developer.id}"/>
-<html:submit value="View Tasks" styleId=""/>
+<html:submit value="View Tasks" styleId="myBtn"/>
 </html:form>
 </td>
 
