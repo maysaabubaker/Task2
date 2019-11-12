@@ -11,7 +11,6 @@
 <title>User Profile</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
 <div class="card">
 <div class="content">
 <h1>Personal Information</h1>

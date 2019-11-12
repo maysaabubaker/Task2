@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ page  isELIgnored="false"%>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 
     
 <!DOCTYPE html>
@@ -14,7 +16,6 @@
 <title>Leader Home</title>
 </head>
 <body>
-<jsp:include page="header.jsp"/>
 <div class="card">
 <div class="content">
 <h1>Leader Tasks</h1>
@@ -25,36 +26,20 @@
 <th>Status</th>
 <th></th>
 </tr>
-<c:forEach var="task" items="${userTasks}">
-<c:if test="${task.status != 'waiting manager'}">
+<logic:iterate id="task" name="userTasks">
+<logic:notEqual name="task"
+property="status"
+value="waiting manager">
 <tr>
-<td>${task.tid}</td>
-<td>${task.title}</td>
-<td>${task.summary}</td>
-<td>${task.status}</td>
+<td><bean:write name="task" property="tid"/></td>
+<td><bean:write name="task" property="title"/></td>
+<td><bean:write name="task" property="summary"/></td>
+<td><bean:write name="task" property="status"/></td>
 <td>
 <html:form action="changeStatus" name="cstatusForm" type="form.CstatusForm">
-<c:choose>
-<c:when test="${task.status=='in progress'}">
 <html:radio property="status"  value="to do"/> to do<br>
 <html:radio property="status"  value="in progress"/> in progress<br>
 <html:radio property="status"  value="completed"/>completed<br>
-</c:when>
-<c:when test="${task.status=='to do'}">
-<html:radio property="status"  value="to do"/> to do<br>
-<html:radio property="status"  value="in progress"/> in progress<br>
-<html:radio property="status"  value="completed"/>completed<br></c:when>
-<c:when test="${task.status=='completed'}">
-<html:radio property="status"  value="to do"/> to do<br>
-<html:radio property="status"  value="in progress"/> in progress<br>
-<html:radio property="status"   value="completed"/>completed<br>
-</c:when>
-<c:otherwise>
-<html:radio property="status"  value="to do"/> to do<br>
-<html:radio property="status"  value="in progress"/> in progress<br>
-<html:radio property="status"  value="completed"/>completed<br>
-</c:otherwise>
-</c:choose>
 <html:hidden property="tid" value="${task.tid}"/>
 <br>
 <center>
@@ -65,8 +50,8 @@
 </td>
 
 </tr>
-</c:if>
-</c:forEach>
+</logic:notEqual>
+</logic:iterate>
 </table>
 <br>
 <h1>Pending Tasks</h1>
@@ -75,16 +60,18 @@
 <th>Title</th>
 <th>Summary</th>
 </tr>
-<c:forEach var="task" items="${userTasks}">
-<c:if test="${task.status == 'waiting manager'}">
+<logic:iterate id="task" name="userTasks">
+<logic:equal name="task"
+property="status"
+value="waiting manager">
 <tr>
-<td>${task.tid}</td>
-<td>${task.title}</td>
-<td>${task.summary}</td>
+<td><bean:write name="task" property="tid"/></td>
+<td><bean:write name="task" property="title"/></td>
+<td><bean:write name="task" property="summary"/></td>
 
 </tr>
-</c:if>
-</c:forEach>
+</logic:equal>
+</logic:iterate>
 </table>
 <br>
 <h1>Developers</h1>
@@ -92,12 +79,13 @@
 <tr>
 <th>Name</th>
 <th>Tasks</th>
-<th></th>
+<th>Assign</th>
 </tr>
-<c:forEach var="developer" items="${developers}">
+<logic:iterate id="developer" name="developers">
+
 <tr>
 <tr>
-<td>${developer.name}</td>
+<td><bean:write name="developer" property="name"/></td>
 
 <td>
 
@@ -108,11 +96,11 @@
 </td>
 
 <td>
-<html:link href="Assign.jsp?aid=${developer.id}" styleClass="anch">Assign</html:link>
+<html:link href="assignTask.do?aid=${developer.id}" styleClass="anch">Assign</html:link>
 </td>
 
 </tr>
-</c:forEach>
+</logic:iterate>
 </table>
 <br><br>
 <c:if test="${not empty vtasks}">
@@ -127,15 +115,16 @@
 <th>Summary</th>
 <th>Status</th>
 </tr>
-<c:forEach var="task" items="${vtasks}">
+<logic:iterate id="task" name="vtasks">
+
 <tr>
-<td>${task.tid}</td>
-<td>${task.title}</td>
-<td>${task.summary}</td>
+<td><bean:write name="task" property="tid"/></td>
+<td><bean:write name="task" property="title"/></td>
+<td><bean:write name="task" property="summary"/></td>
 <td>
 <c:choose>
 <c:when test="${task.status!='waiting leader'}">
-${task.status}
+<bean:write name="task" property="status"/>
 </c:when>
 <c:when test="${task.status=='waiting leader'}">
 <html:form action="atask" name="arForm" type="form.ARForm" >
@@ -151,7 +140,7 @@ ${task.status}
 </c:choose>
 </td>
 </tr>
-</c:forEach>
+</logic:iterate>
 </table>
 </div>
 </div>

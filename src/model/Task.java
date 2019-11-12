@@ -1,7 +1,7 @@
 package model;
 
 public class Task {
-private int tid;	
+private String tid;	
 private String title,summary,status;	
 public Task(int tid, String title, String summary, String status) {
 setTid(tid);
@@ -10,9 +10,9 @@ setSummary(summary);
 setStatus(status);
 }
 public void setTid(int tid) {
-	this.tid=tid;
+	this.tid=tid+"";
 }
-public int getTid() {
+public String getTid() {
 	return tid;
 }
 public void setTitle(String title) {

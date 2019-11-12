@@ -14,7 +14,6 @@ table td, table th {border: none;}
 <title>Add Employee</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
 <div class="card">
 <div class="content">
 <h1>Add Employee</h1>

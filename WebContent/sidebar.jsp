@@ -2,64 +2,66 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
        <%@ page  isELIgnored="false"%>
+    <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
+       
     
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="/task11/sidebar.css" type="text/css">
+<link rel="stylesheet" href="sidebar.css" type="text/css">
 
 
-<title>Developer Home</title>
+<title>Left Sidebar</title>
 </head>
 <body>
 		<ul class="mcd-menu">
 			
 			<li>
-				<a href="profile.do" class="${pageContext.request.requestURI eq '/task11/profile.jsp' ? ' active' : ''}">
+				<html:link href="profile.do">
 					<i class="fa fa-edit"></i>
 					<strong>Profile</strong>
-				</a>
+				</html:link>
 			</li>
 			<c:choose>
 			<c:when test="${level==1}">
 			<li>
-				<a href="mhome.do" class="${pageContext.request.requestURI eq '/task11/ManagerHome.jsp' ? ' active' : ''}">
+				<html:link href="mhome.do" >
 					<i class="fa fa-gift"></i>
 					<strong>Tasks</strong>
-				</a>
+				</html:link>
 			</li>
 			</c:when>
 			<c:when test="${level==2}">
 			<li>
-				<a href="lhome.do" class="${pageContext.request.requestURI eq '/task11/LeaderHome.jsp' ? ' active' : ''}">
+				<html:link href="lhome.do">
 					<i class="fa fa-gift"></i>
 					<strong>Tasks</strong>
-				</a>
+				</html:link>
 			</li>
 			</c:when>
 			<c:when test="${level==3}">
 			<li>
-				<a href="dhome.do" class="${pageContext.request.requestURI eq '/task11/DeveloperHome.jsp' ? ' active' : ''}">
+				<html:link href="dhome.do">
 					<i class="fa fa-gift"></i>
 					<strong>Tasks</strong>
-				</a>
+				</html:link>
 			</li>
 			</c:when>
 			</c:choose>
 			
 			<li>
-				<a href="addTask.jsp" class="${pageContext.request.requestURI eq '/task11/addTask.jsp' ? ' active' : ''}">
+				<html:link href="addTask.do">
 					<i class="fa fa-globe"></i>
 					<strong>Add Task</strong>
-				</a>
+				</html:link>
 			</li>
 			<c:if test="${level==1}">
 			<li>
-				<a href="AddEmp.jsp" class="${pageContext.request.requestURI eq '/task11/AddEmp.jsp' ? ' active' : ''}">
+				<html:link href="addEmp.do">
 					<i class="fa fa-globe"></i>
 					<strong>Add Employee</strong>
-				</a>
+				</html:link>
 			</li>
 			</c:if>
 		</ul>

@@ -1,11 +1,66 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+"http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
 <tiles-definitions>
-<definition name="devhome" path="/DeveloperHome.jsp">
+<definition name="devhome" page="/layout.jsp">
 <put name="title" value="Developer Home" />
 <put name="header" value="/header.jsp" />
 <put name="sidebar" value="/sidebar.jsp" />
-<put name="content" type="string">
-Content goes here
-</put>
+<put name="body" value="/DeveloperHome.jsp"/>
+<put name="footer" value="/footer.jsp" />
+
 </definition>
+<definition name="lehome" page="/layout.jsp">
+<put name="title" value="Leader Home" />
+<put name="header" value="/header.jsp" />
+<put name="sidebar" value="/sidebar.jsp" />
+<put name="body" value="/LeaderHome.jsp"/>
+<put name="footer" value="/footer.jsp" />
+</definition>
+
+<definition name="mghome" page="/layout.jsp">
+<put name="title" value="Manager Home" />
+<put name="header" value="/header.jsp" />
+<put name="sidebar" value="/sidebar.jsp" />
+<put name="body" value="/ManagerHome.jsp"/>
+<put name="footer" value="/footer.jsp" />
+</definition>
+
+<definition name="profile" page="/layout.jsp">
+<put name="title" value="User Profile" />
+<put name="header" value="/header.jsp" />
+<put name="sidebar" value="/sidebar.jsp" />
+<put name="body" value="/profile.jsp"/>
+<put name="footer" value="/footer.jsp" />
+</definition>
+
+<definition name="addTask" page="/layout.jsp">
+<put name="title" value="Add Task" />
+<put name="header" value="/header.jsp" />
+<put name="sidebar" value="/sidebar.jsp" />
+<put name="body" value="/addTask.jsp"/>
+<put name="footer" value="/footer.jsp" />
+</definition>
+
+<definition name="addEmp" page="/layout.jsp">
+<put name="title" value="Add Employee" />
+<put name="header" value="/header.jsp" />
+<put name="sidebar" value="/sidebar.jsp" />
+<put name="body" value="/AddEmp.jsp"/>
+<put name="footer" value="/footer.jsp" />
+</definition>
+
+<definition name="assignTask" page="/layout.jsp">
+<put name="title" value="Assign Task" />
+<put name="header" value="/header.jsp" />
+<put name="sidebar" value="/sidebar.jsp" />
+<put name="body" value="/Assign.jsp"/>
+<put name="footer" value="/footer.jsp" />
+</definition>
+<definition name="${YOUR_DEFINITION_HERE}">
+</definition>
+
 </tiles-definitions>

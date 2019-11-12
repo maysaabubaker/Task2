@@ -4,7 +4,7 @@
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <html>
 <head>
-<link rel="stylesheet" href="/task11/login.css" type="text/css">
+<link rel="stylesheet" href="login.css" type="text/css">
 
 <meta charset="ISO-8859-1">
 <title>Login</title>

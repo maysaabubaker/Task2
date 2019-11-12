@@ -14,7 +14,6 @@ table td, table th {border: none;}
 <title>Add Task</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
 <div class="card">
 <div class="content">
 <h1>Add task</h1>
@@ -27,7 +26,7 @@ Title:</td><td> <html:text property="title"/></td>
 Summary:</td><td><html:textarea property="summary" ></html:textarea></td>
 </tr>
 <tr><td></td><td>
-<html:submit value="Add Task"/> 
+<html:submit value="Add Task"/>
 </td></tr>
 </table>
 </html:form>

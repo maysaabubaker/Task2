@@ -3,7 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page  isELIgnored="false"%>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
- <%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -15,7 +17,7 @@
 <title>Developer Home</title>
 </head>
 <body>
-<jsp:include page="header.jsp"/>
+
 <div class="card">
 <div class="content">
 <h1>Developer Tasks</h1>
@@ -26,36 +28,20 @@
 <th>Status</th>
 <th></th>
 </tr>
-<c:forEach var="task" items="${userTasks}">
-<c:if test="${task.status != 'waiting leader'}">
+<logic:iterate id="task" name="userTasks">
+<logic:notEqual name="task"
+property="status"
+value="waiting leader">
 <tr>
-<td>${task.tid}</td>
-<td>${task.title}</td>
-<td>${task.summary}</td>
-<td>${task.status}</td>
+<td><bean:write name="task" property="tid"/></td>
+<td><bean:write name="task" property="title"/></td>
+<td><bean:write name="task" property="summary"/></td>
+<td><bean:write name="task" property="status"/></td>
 <td>
 <html:form action="changeStatus" name="cstatusForm" type="form.CstatusForm" >
-<c:choose>
-<c:when test="${task.status=='in progress'}">
 <html:radio property="status"  value="to do"/> to do<br>
 <html:radio property="status"  value="in progress"/> in progress<br>
 <html:radio property="status"  value="completed"/>completed<br>
-</c:when>
-<c:when test="${task.status=='to do'}">
-<html:radio property="status"  value="to do"/> to do<br>
-<html:radio property="status"  value="in progress"/> in progress<br>
-<html:radio property="status"  value="completed"/>completed<br></c:when>
-<c:when test="${task.status=='completed'}">
-<html:radio property="status"  value="to do"/> to do<br>
-<html:radio property="status"  value="in progress"/> in progress<br>
-<html:radio property="status"   value="completed"/>completed<br>
-</c:when>
-<c:otherwise>
-<html:radio property="status"  value="to do"/> to do<br>
-<html:radio property="status"  value="in progress"/> in progress<br>
-<html:radio property="status"  value="completed"/>completed<br>
-</c:otherwise>
-</c:choose>
 <html:hidden property="tid" value="${task.tid}"/>
 <br>
 <center>
@@ -66,8 +52,8 @@
 </td>
 
 </tr>
-</c:if>
-</c:forEach>
+</logic:notEqual>
+</logic:iterate>
 </table>
 <h1>Pending Tasks</h1>
 <table border=1 class="js-sort-table">
@@ -75,15 +61,18 @@
 <th>Title</th>
 <th>Summary</th>
 </tr>
-<c:forEach var="task" items="${userTasks}">
-<c:if test="${task.status == 'waiting leader'}">
+<logic:iterate id="task" name="userTasks">
+<logic:equal name="task"
+property="status"
+value="waiting leader">
 <tr>
-<td>${task.tid}</td>
-<td>${task.title}</td>
-<td>${task.summary}</td>
+<td><bean:write name="task" property="tid"/></td>
+<td><bean:write name="task" property="title"/></td>
+<td><bean:write name="task" property="summary"/></td>
 
 </tr>
-</c:if></c:forEach>
+</logic:equal>
+</logic:iterate>
 </table>
 </div>
 </div>

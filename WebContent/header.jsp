@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="/task11/header.css" type="text/css">
+<link rel="stylesheet" href="header.css" type="text/css">
 
 
 <title>header</title>
@@ -21,5 +21,4 @@
   <li class="lhdr"><a  class="ahdr" href="logout.do">Logout</a></li>
 
 </ul>
-<jsp:include page="sidebar.jsp"/>
 </body>
